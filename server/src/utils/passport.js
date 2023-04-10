@@ -31,7 +31,6 @@ const passportGoogle = () => {
                     lastName: profile.name.familyName || ' ',
                     password: 'google',
                     email: profile.emails[0].value,
-                    moblie: profile.phoneNumbers && profile.phoneNumbers.length > 0 ? profile.phoneNumbers[0].value : '',
                     picture: profile.photos[0].value,
                     refreshToken
                 })

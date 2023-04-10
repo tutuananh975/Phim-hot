@@ -31,14 +31,14 @@ const User = new Schema({
     },
     mobile: {
         type: String,
-        unique: true,
-        validate: {
-            validator: (value) => {
-                if(value === '') return true;
-                return /^\d{10}$/.test(value);
-            },
-            message: props => `${props.value} không phải số điện thoại hợp lệ!`
-        }
+        default: ''
+        // validate: {
+        //     validator: (value) => {
+        //         if(value === '') return true;
+        //         return /^\d{10}$/.test(value);
+        //     },
+        //     message: props => `${props.value} không phải số điện thoại hợp lệ!`
+        // }
     },
     password: {
         type: String,

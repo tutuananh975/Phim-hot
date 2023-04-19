@@ -1,0 +1,37 @@
+import Link from "next/link";
+import React, { useState } from "react";
+
+export const items = [
+  { id: 1, name: "HOME", path: "/home" },
+  { id: 3, name: "PHIM LẺ", path: "" },
+  { id: 2, name: "PHIM BỘ", path: "" },
+  { id: 4, name: "PHIM VIỆT", path: "/categories/filmViet" },
+  { id: 5, name: "PHIM HÀI", path: "" },
+  { id: 6, name: "VÕ THUẬT", path: "" },
+  { id: 7, name: "HOẠT HÌNH", path: "/categories/cartoon" },
+];
+
+const Navbar = () => {
+  return (
+    <>
+      <div className="flex mt-3 max-sm:hidden">
+        {items.map((arr) => (
+          <Link
+            href={arr.path}
+            key={arr.id}
+            className={`text-gray-200 text-base p-5 font-medium cursor-pointer  hover:border-b-4 border-solid border-orange-500  `}
+          >
+            {arr.name}
+          </Link>
+        ))}
+        <Link href={'/categories/favorite'}
+          className={`text-gray-200 text-base p-5 font-medium cursor-pointer  hover:border-b-4 border-solid border-orange-500  `}
+        >
+          MỤC YÊU THÍCH
+        </Link>
+      </div>
+    </>
+  );
+};
+
+export default Navbar;

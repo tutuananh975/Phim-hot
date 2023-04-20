@@ -1,8 +1,9 @@
-"use client"
+"use client";
 import React, { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import Link from "next/link";
+import { AiOutlineClose } from "react-icons/ai";
 
 const Login = () => {
   const [valueOnChange, setValueOnChange] = useState("");
@@ -27,6 +28,11 @@ const Login = () => {
         }}
       >
         <div className="text-gray-900 h-screen max-sm:bg-white">
+          <Link href={'/home'} className="flex justify-end">
+            <div className="text-2xl font-bold w-6 h-6 bg-white relative top-6 right-6">
+              <AiOutlineClose />
+            </div>
+          </Link>
           <Form className="w-1/2 pt-8 mx-auto p-8 bg-white relative top-14 rounded-xl max-sm:w-full">
             <div className="text-center font-semibold text-2xl mb-4 text-gray-900">
               SIGN IN
@@ -69,10 +75,16 @@ const Login = () => {
                 Đăng Nhập
               </button>
               <div className="flex justify-between">
-                <Link href={'/auth/Register'} className="text-center font-semibold cursor-pointer">
+                <Link
+                  href={"/auth/Register"}
+                  className="text-center font-semibold cursor-pointer"
+                >
                   Tạo tài khoản
                 </Link>
-                <Link href={'/auth/ForgetPassword'} className="text-center font-semibold cursor-pointer">
+                <Link
+                  href={"/auth/ForgetPassword"}
+                  className="text-center font-semibold cursor-pointer"
+                >
                   Quên mật khẩu
                 </Link>
               </div>

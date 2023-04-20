@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React, { useState } from "react";
 
 export const items = [
@@ -12,6 +13,7 @@ export const items = [
 ];
 
 const Navbar = () => {
+  const router = useRouter();
   return (
     <>
       <div className="flex mt-3 max-sm:hidden">
@@ -19,13 +21,13 @@ const Navbar = () => {
           <Link
             href={arr.path}
             key={arr.id}
-            className={`text-gray-200 text-base p-5 font-medium cursor-pointer  hover:border-b-4 border-solid border-orange-500  `}
+            className={`text-gray-200 text-base p-5 font-medium cursor-pointer ${router.asPath===arr.path?"text-orange-500":""}`}
           >
             {arr.name}
           </Link>
         ))}
         <Link href={'/categories/favorite'}
-          className={`text-gray-200 text-base p-5 font-medium cursor-pointer  hover:border-b-4 border-solid border-orange-500  `}
+          className={`text-gray-200 text-base p-5 font-medium cursor-pointer ${router.asPath==='/categories/favorite'?"text-orange-500":""}`}
         >
           MỤC YÊU THÍCH
         </Link>

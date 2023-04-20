@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import Link from "next/link";
+import { AiOutlineClose } from "react-icons/ai";
 
 const ForgetPassword = () => {
-    const [valueOnChange, setValueOnChange] = useState("");
+  const [valueOnChange, setValueOnChange] = useState("");
   return (
     <>
       <Formik
@@ -24,6 +25,11 @@ const ForgetPassword = () => {
         }}
       >
         <div className="text-gray-900 h-screen max-sm:bg-white">
+          <Link href={"/home"} className="flex justify-end">
+            <div className="text-2xl font-bold w-6 h-6 bg-white relative top-6 right-6">
+              <AiOutlineClose/>
+            </div>
+          </Link>
           <Form className="w-1/2 pt-8 mx-auto p-8 bg-white relative top-24 rounded-xl max-sm:w-full">
             <div className="text-center font-semibold text-2xl mb-4 text-gray-900 py-4">
               FORGET PASSWORD
@@ -50,7 +56,7 @@ const ForgetPassword = () => {
               >
                 Quên Mật Khẩu
               </button>
-              <Link href={'/auth/Login'} className="text-center font-semibold">
+              <Link href={"/auth/Login"} className="text-center font-semibold">
                 Đăng Nhập
               </Link>
             </div>

@@ -11,7 +11,7 @@ export default function Header() {
           <img
             src="https://ghienphim3.net/client_assets/images/logov1.png"
             alt=""
-            className="max-w-xs max-sm:w-1/3"
+            className="max-w-xs max-sm:w-2/3"
           />
         </Link>
         <SearchBox />

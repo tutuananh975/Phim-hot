@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { items } from "./Navbar";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 const NavbarMobile = () => {
   const [hide, setHide] = useState(false);
+  const router = useRouter();
 
   const handleNavbarMb = () => {
     setHide(!hide);
@@ -13,14 +15,14 @@ const NavbarMobile = () => {
       <div className="flex sm:hidden mb-2">
         <div
           onClick={handleNavbarMb}
-          className="text-gray-200 text-sm px-3 mt-4 font-medium cursor-pointer hover:text-orange-500"
+          className={`text-gray-200 text-sm px-3 mt-4 font-medium cursor-pointer ${hide?"text-orange-500":""}`}
         >
           Danh Mục
         </div>
-        <div className="text-gray-200 text-sm px-3 mt-4 font-medium cursor-pointer hover:hover:text-orange-500">
+        <Link href={'/auth/Login'} className="text-gray-200 text-sm px-3 mt-4 font-medium cursor-pointer">
           Truy Cập Vào Tài Khoản
-        </div>
-        <Link href={'/categories/favorite'} className="text-gray-200 text-sm px-3 mt-4 font-medium cursor-pointer hover:hover:text-orange-500">
+        </Link>
+        <Link href={'/categories/favorite'} className={`text-gray-200 text-sm px-3 mt-4 font-medium cursor-pointer ${router.asPath==='/categories/favorite'?"text-orange-500":""}`}>
           Mục Yêu Thich
         </Link>
       </div>
@@ -28,7 +30,7 @@ const NavbarMobile = () => {
         {items.map((arr) => (
           <Link href={arr.path} key={arr.id}>
             <li
-              className={` pl-2 bg-black text-white text-sm p-2 font-medium cursor-pointer `}
+              className={` pl-2 bg-black text-white text-sm p-2 font-medium cursor-pointer ${router.asPath===arr.path?"text-orange-500":""} `}
             >
               {arr.name}
             </li>

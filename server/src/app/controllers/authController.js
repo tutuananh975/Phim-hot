@@ -109,12 +109,10 @@ const login = asyncHandler(async (req, res) => {
 
 const register = asyncHandler(async (req, res) => {
     if(!req.body){
-        return res.json({
-            message: "body not found"
-        })
+        throw new Error("Body not found!");
     }
     const { firstName, lastName, email, mobile, password } = req.body;
-    console.log(Object.keys(req.body));
+    console.log(req.body);
     if (firstName && lastName && email && mobile && password && Object.keys(req.body).length === 5) {
         const hashPassword = bcrypt.hashSync(password, salt);
         const newUser = new UserModel({

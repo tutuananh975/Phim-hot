@@ -4,9 +4,14 @@ import * as Yup from "yup";
 import Link from "next/link";
 import { AiOutlineClose } from "react-icons/ai";
 import { registerService } from "@/services/auth.service";
+import { useMutation } from "react-query";
+import { useRouter } from "next/router";
+import { ToastContainer, toast } from "react-toastify";
 
 const Register = () => {
   const [valueOnChange, setValueOnChange] = useState("");
+  const router = useRouter();
+  // const { mutate, status } = useMutation(registerService);
   return (
     <>
       <Formik
@@ -29,11 +34,18 @@ const Register = () => {
         validate={(Change) => {
           setValueOnChange(Change);
         }}
-        onSubmit={(dataAcc) => {
-          registerService(dataAcc);
+        onSubmit={async (user) => {
+          registerService(user).then((res) => console.log(res.data));
+          registerService(user)
+          .then(res => console.log(res.data))
+          .catch(err => console.log(err.response.data)); 
+          // if (data.status === "ok") {
+          //   router.push("/auth/Login");
+          // }
         }}
       >
         <div className=" text-gray-900 h-screen max-sm:bg-white">
+          <ToastContainer />
           <Link href={"/"} className="flex justify-end">
             <div className="text-2xl font-bold w-6 h-6 bg-white relative top-6 right-6">
               <AiOutlineClose />

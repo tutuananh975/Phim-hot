@@ -7,6 +7,7 @@ import '../styles/Poster.css';
 import '../styles/auth.css';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function App({ Component, pageProps }) {
   return (

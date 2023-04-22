@@ -30,7 +30,7 @@ const Register = () => {
           setValueOnChange(Change);
         }}
         onSubmit={(dataAcc) => {
-          registerService(dataAcc);
+          registerService(dataAcc).then(res => console.log(res.data));
         }}
       >
         <div className=" text-gray-900 h-screen max-sm:bg-white">

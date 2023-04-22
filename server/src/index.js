@@ -1,4 +1,5 @@
 import express from 'express';
+import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import route from './routes/index.js';
 import dbConnect from './config/db/index.js';
@@ -11,6 +12,7 @@ export const SECET_KEY = process.env.SECET_KEY;
 export const DOMAIN = process.env.DOMAIN;
 const app = express();
 dbConnect();
+app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 

@@ -3,10 +3,10 @@ import MainLayout from "../layout/MainLayout";
 import Poster from "./components/Poster/Poster";
 import SlickSlide from "./components/SlickSlide/SlickSlide";
 import SideBarList from "./components/SideBarList/SideBarList";
-import ProductList from "../components/ProductList/ProductList";
+import ProductList from "@/components/ProductList/ProductList";
 
 
-export default function home() {
+export default function HomePage() {
   return (
     <MainLayout>
       <div>

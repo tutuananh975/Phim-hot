@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import React, { useState } from "react";
 
 export const items = [
-  { id: 1, name: "HOME", path: "/home" },
+  { id: 1, name: "HOME", path: "/" },
   { id: 3, name: "PHIM LẺ", path: "" },
   { id: 2, name: "PHIM BỘ", path: "" },
   { id: 4, name: "PHIM VIỆT", path: "/categories/filmViet" },

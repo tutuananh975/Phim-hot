@@ -25,7 +25,7 @@ const ForgetPassword = () => {
         }}
       >
         <div className="text-gray-900 h-screen max-sm:bg-white">
-          <Link href={"/home"} className="flex justify-end">
+          <Link href={"/"} className="flex justify-end">
             <div className="text-2xl font-bold w-6 h-6 bg-white relative top-6 right-6">
               <AiOutlineClose/>
             </div>

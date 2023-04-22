@@ -7,7 +7,7 @@ export default function Header() {
   return (
     <>
       <div className="flex justify-between px-5 max-sm: pt-4 ">
-        <Link href={'/home'}>
+        <Link href={'/'}>
           <img
             src="https://ghienphim3.net/client_assets/images/logov1.png"
             alt=""

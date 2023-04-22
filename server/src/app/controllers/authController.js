@@ -23,7 +23,6 @@ const loginGoogle = asyncHandler(async (req, res) => {
         firstName: user.firstName,
         lastName: user.lastName,
         email: user.email,
-        mobile: user.mobile,
         picture: user.picture,
         token: user.token
     }
@@ -109,6 +108,11 @@ const login = asyncHandler(async (req, res) => {
 })
 
 const register = asyncHandler(async (req, res) => {
+    if(!req.body){
+        return res.json({
+            message: "body not found"
+        })
+    }
     const { firstName, lastName, email, mobile, password } = req.body;
     console.log(Object.keys(req.body));
     if (firstName && lastName && email && mobile && password && Object.keys(req.body).length === 5) {

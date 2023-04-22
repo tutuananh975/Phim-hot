@@ -3,6 +3,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import Link from "next/link";
 import { AiOutlineClose } from "react-icons/ai";
+import { registerService } from "@/services/auth.service";
 
 const Register = () => {
   const [valueOnChange, setValueOnChange] = useState("");
@@ -14,6 +15,7 @@ const Register = () => {
           lastName: "",
           email: "",
           password: "",
+          mobile: "",
         }}
         validationSchema={Yup.object({
           email: Yup.string()
@@ -22,18 +24,19 @@ const Register = () => {
           firstName: Yup.string().required("Please fill First Name field"),
           lastName: Yup.string().required("Please fill Last Name field"),
           password: Yup.string().required("Please fill PassWord field"),
+          mobile: Yup.string().required("Please fill PassWord field"),
         })}
         validate={(Change) => {
           setValueOnChange(Change);
         }}
         onSubmit={(dataAcc) => {
-          console.log(dataAcc);
+          registerService(dataAcc);
         }}
       >
         <div className=" text-gray-900 h-screen max-sm:bg-white">
-          <Link href={"/home"} className="flex justify-end">
+          <Link href={"/"} className="flex justify-end">
             <div className="text-2xl font-bold w-6 h-6 bg-white relative top-6 right-6">
-              <AiOutlineClose/>
+              <AiOutlineClose />
             </div>
           </Link>
           <Form className="w-1/2  py-3 mx-auto px-8 bg-white relative top-6 rounded-xl mb-4 max-sm:w-full">
@@ -86,17 +89,32 @@ const Register = () => {
               />
             </div>
             <div className="input-container">
-              <label className={valueOnChange?.passWord ? "label" : "labels"}>
+              <label className={valueOnChange?.password ? "label" : "labels"}>
                 Password
               </label>
               <Field
-                id="passWord"
+                id="password"
                 type="password"
-                name="passWord"
+                name="password"
                 className="w-full border-2 pt-4 pl-2 pb-1 inputAcc text-gray-900"
               />
               <ErrorMessage
-                name="passWord"
+                name="password"
+                render={(msg) => <div className="errMessage">{msg}</div>}
+              />
+            </div>
+            <div className="input-container">
+              <label className={valueOnChange?.password ? "label" : "labels"}>
+                Mobile
+              </label>
+              <Field
+                id="mobile"
+                type="mobile"
+                name="mobile"
+                className="w-full border-2 pt-4 pl-2 pb-1 inputAcc text-gray-900"
+              />
+              <ErrorMessage
+                name="mobile"
                 render={(msg) => <div className="errMessage">{msg}</div>}
               />
             </div>

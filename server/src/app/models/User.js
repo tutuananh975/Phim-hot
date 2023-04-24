@@ -57,7 +57,11 @@ const User = new Schema({
     },
     passwordResetToken: {
         type: String
-    }
+    },
+    favouriteMovie: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'YoutubeMovie'
+    }]
 })
 
 export default mongoose.model('User', User);

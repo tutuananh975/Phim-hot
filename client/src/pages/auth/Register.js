@@ -11,7 +11,15 @@ import { ToastContainer, toast } from "react-toastify";
 const Register = () => {
   const [valueOnChange, setValueOnChange] = useState("");
   const router = useRouter();
-  // const { mutate, status } = useMutation(registerService);
+
+  // const { mutate, isLoading, isSuccess, data } = useMutation(registerService, {
+  //   onError: (error) => toast.error(error.response.data.message),
+  // });
+  // if (isSuccess) {
+  //   toast.success("Tạo tài khoản thành công");
+  //   router.push("/auth/Login");
+  // }
+
   return (
     <>
       <Formik
@@ -34,14 +42,16 @@ const Register = () => {
         validate={(Change) => {
           setValueOnChange(Change);
         }}
-        onSubmit={async (user) => {
-          registerService(user).then((res) => console.log(res.data));
+        onSubmit={(user) => {
           registerService(user)
-          .then(res => console.log(res.data))
-          .catch(err => console.log(err.response.data)); 
-          // if (data.status === "ok") {
-          //   router.push("/auth/Login");
-          // }
+            .then((res) => {
+              if (res.data.status === "ok") {
+                toast.success("Tạo tài khoản thành công");
+                router.push("/auth/Login");
+              }
+            })
+            .catch((err) => toast.error(err.response.data.message));
+          // mutate(user);
         }}
       >
         <div className=" text-gray-900 h-screen max-sm:bg-white">
@@ -132,6 +142,7 @@ const Register = () => {
             </div>
             <div className="px-4">
               <button
+                disabled={isLoading}
                 className="bg-gray-900 text-white w-full mx-auto my-4 py-2 rounded-2xl font-semibold"
                 type="submit"
               >

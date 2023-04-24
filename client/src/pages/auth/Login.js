@@ -4,31 +4,44 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import Link from "next/link";
 import { AiOutlineClose } from "react-icons/ai";
+import { loginService } from "@/services/auth.service";
+import { ToastContainer, toast } from "react-toastify";
+import { useRouter } from "next/router";
 
 const Login = () => {
   const [valueOnChange, setValueOnChange] = useState("");
+  const router = useRouter()
   return (
     <>
       <Formik
         initialValues={{
           email: "",
-          passWord: "",
+          password: "",
         }}
         validationSchema={Yup.object({
           email: Yup.string()
             .email("Please enter your email")
             .required("Please fill email field"),
-          passWord: Yup.string().required("Please fill PassWord field"),
+          password: Yup.string().required("Please fill PassWord field"),
         })}
         validate={(Change) => {
           setValueOnChange(Change);
         }}
-        onSubmit={(dataAcc) => {
-          console.log(dataAcc);
+        onSubmit={(user) => {
+          loginService(user)
+            .then((res) => {
+              console.log(res.data)
+              if(res.data.status==='ok'){
+                toast.success("Đăng nhập thành công");
+                router.push('/')
+              }
+            })
+            .catch((err) => toast.error(err.response.data.message));
         }}
       >
         <div className="text-gray-900 h-screen max-sm:bg-white">
-          <Link href={'/'} className="flex justify-end">
+          <ToastContainer />
+          <Link href={"/"} className="flex justify-end">
             <div className="text-2xl font-bold w-6 h-6 bg-white relative top-6 right-6">
               <AiOutlineClose />
             </div>
@@ -53,17 +66,17 @@ const Login = () => {
               />
             </div>
             <div className="input-container">
-              <label className={valueOnChange?.passWord ? "label" : "labels"}>
+              <label className={valueOnChange?.password ? "label" : "labels"}>
                 Password
               </label>
               <Field
-                id="passWord"
+                id="password"
                 type="password"
-                name="passWord"
+                name="password"
                 className="w-full border-2 pt-4 pl-2 pb-1 inputAcc text-gray-900"
               />
               <ErrorMessage
-                name="passWord"
+                name="password"
                 render={(msg) => <div className="errMessage">{msg}</div>}
               />
             </div>

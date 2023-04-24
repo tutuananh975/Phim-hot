@@ -92,7 +92,10 @@ const login = asyncHandler(async (req, res) => {
             httpOnly: true,
             maxAge: 7 * 24 * 60 * 1000
         })
-        console.log(token);
+        res.cookie("token",token,{
+            httpOnly: true,
+            maxAge : 24*60*60*1000
+        })
         res.status(200).json({
             status: "ok",
             message: "login successfully",
@@ -105,26 +108,36 @@ const login = asyncHandler(async (req, res) => {
             }
         })
     } else throw new Error('Please fill in the correct information')
-})
-
+    })
+    
 const register = asyncHandler(async (req, res) => {
     if(!req.body){
         throw new Error("Body not found!");
     }
     const { firstName, lastName, email, mobile, password } = req.body;
-    console.log(req.body);
     if (firstName && lastName && email && mobile && password && Object.keys(req.body).length === 5) {
         const hashPassword = bcrypt.hashSync(password, salt);
         const newUser = new UserModel({
             ...req.body,
             password: hashPassword
         });
-        await newUser.save();
-        res.status(201).json({
-            status: "ok",
-            message: "register successfully!",
-            data: { firstName, lastName, email }
-        })
+        try{
+            await newUser.save();
+            res.status(201).json({
+                status: "ok",
+                message: "register successfully!",
+                data: { firstName, lastName, email }
+            })
+        } catch(err) {
+            if(err.name === 'MongoServerError' && err.code === 11000 && err.keyValue.email){
+                res.statusCode = 409;
+                throw new Error("Email đã tồn tại");
+            } 
+            if(err.name === 'MongoServerError' && err.code === 11000 && err.keyValue.mobile) {
+                res.statusCode = 409;
+                throw new Error("Mobile đã tồn tại");
+            }
+        }
     } else throw new Error("Please fill in the correct information");
 })
 

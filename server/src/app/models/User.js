@@ -31,7 +31,8 @@ const User = new Schema({
     },
     mobile: {
         type: String,
-        default: ''
+        // default: '',
+        // unique: true,
         // validate: {
         //     validator: (value) => {
         //         if(value === '') return true;

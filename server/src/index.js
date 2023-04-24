@@ -12,7 +12,10 @@ export const SECET_KEY = process.env.SECET_KEY;
 export const DOMAIN = process.env.DOMAIN;
 const app = express();
 dbConnect();
-app.use(cors());
+app.use(cors({
+    credentials:true,
+    origin:['http://localhost:3000']
+}));
 app.use(express.json());
 app.use(cookieParser());
 

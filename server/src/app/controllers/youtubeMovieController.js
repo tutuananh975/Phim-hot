@@ -2,13 +2,7 @@ import asyncHandler from 'express-async-handler';
 import YoutubeMovie from '../models/YoutubeMovie.js';
 import SeriesMovie from '../models/SeriesMovie.js';
 
-// Get 8 phim lẻ mới cập nhật
-const getNewSingleMovies = asyncHandler(async (req, res) => {
-    res.json({
-        status: 'ok'
-    })
-})
-
+// admin tạo phim mới
 const createMovie = asyncHandler(async (req, res) => {
     const data = {
         ...req.body,
@@ -43,10 +37,12 @@ const createMovie = asyncHandler(async (req, res) => {
     })
 })
 
+// sửa + thêm một bộ phim
 const editOneEpisode = asyncHandler(async (req, res) => {
     const idMovie = req.params;
 })
 
+// get các phim hot
 const getHotMovies = asyncHandler(async (req, res) => {
     const data = await YoutubeMovie.find({isHot: true});
     res.status(200).json({
@@ -56,6 +52,7 @@ const getHotMovies = asyncHandler(async (req, res) => {
     })
 })
 
+// get  8 phim lẻ mới nhất
 const getNewSingleMovie = asyncHandler(async (req, res) => {
     const data = await YoutubeMovie.find({type: 'single'}).sort({_id: -1}).limit(8);
     res.status(200).json({
@@ -65,6 +62,7 @@ const getNewSingleMovie = asyncHandler(async (req, res) => {
     })
 })
 
+// get 8 phim bộ mới nhất
 const getNewSeriesMovie = asyncHandler(async (req, res) => {
     const data = await YoutubeMovie.find({type: 'series'}).sort({_id: -1}).limit(8);
     res.status(200).json({

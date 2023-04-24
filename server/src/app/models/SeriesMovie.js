@@ -10,9 +10,7 @@ const SeriesMovie = new Schema({
         episodeNumber: {type: Number, require: true},
         long: {type: String, default: ''},
         videoId: {type: String, default: ''},
-        description: {type: String, default: ''},
-        evaluate: {type : Array, default: []},
-        isHot: {type: Boolean, default: false}
+        description: {type: String, default: ''}
     }]
 })
 

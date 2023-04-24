@@ -47,7 +47,37 @@ const editOneEpisode = asyncHandler(async (req, res) => {
     const idMovie = req.params;
 })
 
+const getHotMovies = asyncHandler(async (req, res) => {
+    const data = await YoutubeMovie.find({isHot: true});
+    res.status(200).json({
+        status: 'ok',
+        message: 'get hot movies success fully',
+        data
+    })
+})
+
+const getNewSingleMovie = asyncHandler(async (req, res) => {
+    const data = await YoutubeMovie.find({type: 'single'}).sort({_id: -1}).limit(8);
+    res.status(200).json({
+        status: 'ok',
+        message: 'get new single movie successfully',
+        data
+    })
+})
+
+const getNewSeriesMovie = asyncHandler(async (req, res) => {
+    const data = await YoutubeMovie.find({type: 'series'}).sort({_id: -1}).limit(8);
+    res.status(200).json({
+        status: 'ok',
+        message: 'get new series movie successfully',
+        data
+    })
+})
+
 export {
     createMovie,
-    editOneEpisode
+    editOneEpisode,
+    getHotMovies,
+    getNewSingleMovie,
+    getNewSeriesMovie
 };

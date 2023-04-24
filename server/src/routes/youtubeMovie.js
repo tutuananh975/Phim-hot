@@ -4,7 +4,11 @@ import * as youtubeMovieController from '../app/controllers/youtubeMovieControll
 const youtubeMovieRouter =  express.Router();
 
 // youtubeMovieRouter.get('/hotMovies', youtubeMovieController.getHotMovies);
-youtubeMovieRouter.put('/{id}/edit', youtubeMovieController.editOneEpisode)
+youtubeMovieRouter.get('/hotMovies', youtubeMovieController.getHotMovies);
+youtubeMovieRouter.get('/newSingleMoive', youtubeMovieController.getNewSingleMovie);
+youtubeMovieRouter.get('/newSeriesMoive', youtubeMovieController.getNewSeriesMovie);
+
+youtubeMovieRouter.put('/{id}/edit', youtubeMovieController.editOneEpisode);
 youtubeMovieRouter.post('/', youtubeMovieController.createMovie);
 
 export default youtubeMovieRouter;

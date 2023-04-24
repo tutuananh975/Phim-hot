@@ -1,10 +1,10 @@
 import handleErrorMiddleware from '../middlewares/handleErrorMiddleware.js';
 import authRouter from './auth.js';
-import productRouter from './product.js';
+import youtubeMovieRouter from './youtubeMovie.js';
 
 const route = (app) => {
     app.use('/api/v1/auth', authRouter);
-    app.use('/api/v1/products', productRouter);
+    app.use('/api/v1/youtubeMovie', youtubeMovieRouter);
     
     app.use(handleErrorMiddleware);
 }

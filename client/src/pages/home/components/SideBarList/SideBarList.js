@@ -4,15 +4,15 @@ const SideBarList = ({ data }) => {
   return (
     <>
       <div>
-        {data.map((data) => (
-          <div className={`flex my-2 ${data.id %2 ===0 ? 'bg-orange-900' : ''}`} key={data.id}>
-            <img src={data.img} alt="" className="w-14 h-14" />
+        {data?.map((data,index) => (
+          <div className={`flex my-2 ${index %2 ===0 ? 'bg-gray-800' : ''}`} key={data.id}>
+            <img src={data.avatar} alt="" className="w-14 h-14 my-auto" />
             <div className="ml-2">
-              <div className="text-sm font-semibold font-serif text-center mt-2 px-2">
+              <div className="text-sm font-semibold font-mono text-center mt-2 px-2">
                 {data.name}
               </div>
-              <div className="text-center font-medium text-gray-300 font-serif">
-                {data.nameEng}
+              <div className="text-center font-medium text-gray-300 font-serif text-xs">
+                {data.englishName}
               </div>
             </div>
           </div>

@@ -92,7 +92,10 @@ const login = asyncHandler(async (req, res) => {
             httpOnly: true,
             maxAge: 7 * 24 * 60 * 1000
         })
-        console.log(token);
+        res.cookie("token",token,{
+            httpOnly: true,
+            maxAge : 24*60*60*1000
+        })
         res.status(200).json({
             status: "ok",
             message: "login successfully",
@@ -105,8 +108,8 @@ const login = asyncHandler(async (req, res) => {
             }
         })
     } else throw new Error('Please fill in the correct information')
-})
-
+    })
+    
 const register = asyncHandler(async (req, res) => {
     if(!req.body){
         throw new Error("Body not found!");

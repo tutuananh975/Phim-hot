@@ -7,6 +7,7 @@ const Schema = mongoose.Schema;
 const YoutubeMovie = new Schema({
     name: {type: String, required: true},
     englishName: {type: String, required: true},
+    avatar: {type: String, required: true},
     releaseAt : {type: String, required: true},
     long: {type: String},
     type: {type: String, required: true},

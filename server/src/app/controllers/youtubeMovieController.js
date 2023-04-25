@@ -4,7 +4,7 @@ import SeriesMovie from '../models/SeriesMovie.js';
 
 // admin tạo phim mới
 const createMovie = asyncHandler(async (req, res) => {
-    const data = {
+    let data = {
         ...req.body,
     };
     const newMovie = new YoutubeMovie(data);
@@ -24,7 +24,7 @@ const createMovie = asyncHandler(async (req, res) => {
                 }
             ]
         }
-        const newSeriesMovie = new SeriesMovie({
+        let newSeriesMovie = new SeriesMovie({
             movieId: newMovie._id,
             episodes
         })

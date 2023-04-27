@@ -7,7 +7,6 @@ const youtubeMovieRouter =  express.Router();
 youtubeMovieRouter.get('/hotMovies', youtubeMovieController.getHotMovies);
 youtubeMovieRouter.get('/newSingleMoive', youtubeMovieController.getNewSingleMovie);
 youtubeMovieRouter.get('/newSeriesMoive', youtubeMovieController.getNewSeriesMovie);
-
 youtubeMovieRouter.put('/{id}/edit', youtubeMovieController.editOneEpisode);
 youtubeMovieRouter.post('/', youtubeMovieController.createMovie);
 

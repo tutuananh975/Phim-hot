@@ -1,0 +1,3 @@
+const searchBox = (req,res)=>{
+    
+}

@@ -142,7 +142,6 @@ const Register = () => {
             </div>
             <div className="px-4">
               <button
-                disabled={isLoading}
                 className="bg-gray-900 text-white w-full mx-auto my-4 py-2 rounded-2xl font-semibold"
                 type="submit"
               >

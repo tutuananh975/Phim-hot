@@ -6,7 +6,7 @@ const nextConfig = {
   },
   env: {
     host: "http://localhost:5000",
-  },
-}
+  }
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

@@ -25,7 +25,7 @@ export const ComingDb = [
     {   
         id :5,
         name : 'Đại Hán Quân Hồn',
-        englishName : 'Army Soul Of The Han Dynasty 2022' ,
+        englishName : 'Army Soul Of The Han 2022' ,
         avatar : 'https://phimmoiy.net/wp-content/uploads/2023/04/dai-han-quan-hon.jpg',
     },
     {   
@@ -42,8 +42,8 @@ export const ComingDb = [
     },
     {   
         id :8,
-        name : 'Ma Thổi Đèn: Nam Hải Quy Hư',
-        englishName : 'Mojin: Return to the South China Sea 2022' ,
+        name : 'Ma Thổi Đèn: Nam Hải Quy',
+        englishName : 'Mojin: Return to the Sea 2022' ,
         avatar : 'https://phimmoiy.net/wp-content/uploads/2023/04/Ma-Thoi-Den-Nam-Hai-Quy-Hu.jpg',
     },
     {   
@@ -51,5 +51,11 @@ export const ComingDb = [
         name : 'Thiên Sư Trừ Tà',
         englishName : 'Exorcist 2022' ,
         avatar : 'https://phimmoiy.net/wp-content/uploads/2023/04/thien-su-tru-ta.jpg',
-    }
+    },
+    {   
+        id :10,
+        name : 'Bố Già',
+        englishName : "Dad, I'm Sorry 2022" ,
+        avatar : 'https://duphim.tv/uploads/21rp3lRbU0KS5nEhNd46FwMTa7k9HoLj.jpg?v=1623742847',
+    },
 ]

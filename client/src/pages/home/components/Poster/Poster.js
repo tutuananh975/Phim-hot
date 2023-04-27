@@ -35,7 +35,7 @@ const Poster = () => {
       >
         {PosterImg.map((i) => (
           <SwiperSlide key={i.id}>
-            <img src={i.img} alt="slide_image" className="max-w-xl max-h-80 " />
+            <img src={i.img} alt="slide_image" className="max-w-xl max-h-80" style={{backgroundSize: "cover"}}/>
           </SwiperSlide>
         ))}
         <div className="slider-controler">

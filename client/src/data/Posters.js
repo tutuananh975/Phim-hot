@@ -5,7 +5,7 @@ export const PosterImg = [
     },
     {
         id:2,
-        img: 'https://printgo.vn/uploads/media/796109/kich-thuoc-poster-01_1631694457.jpg'
+        img: 'https://i.ytimg.com/vi/9knuQ89AYVM/hqdefault.jpg'
     },
     {
         id:3,

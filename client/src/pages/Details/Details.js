@@ -1,5 +1,5 @@
 import MainLayout from "@/pages/layout/MainLayout";
-import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import { AiFillEye } from "react-icons/ai";
 
@@ -45,9 +45,9 @@ const Details = () => {
           <button className="border-2 px-4 py-2 rounded-3xl font-medium text-sm">
             Trailler
           </button>
-          <button className="bg-orange-500 border-2 border-orange-500 px-4 py-2 rounded-3xl ml-3 font-medium text-sm">
+          <Link href={'/details/Watching'} className="bg-orange-500 border-2 border-orange-500 px-4 py-2 rounded-3xl ml-3 font-medium text-sm">
             Xem Phim
-          </button>
+          </Link>
         </div>
         <div>
           <div className="font-medium text-xl p-4 mt-4">

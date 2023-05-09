@@ -12,12 +12,14 @@ import {
   newSeriesMoiveService,
 } from "@/services/Homepage.service";
 import { BeatLoader } from "react-spinners";
+import { getFilmViet } from "@/services/categories.service";
+import Link from "next/link";
 
 export default function HomePage() {
   const queries = [
     { queryKey: "filmHot", queryFn: hotMoviesService },
     { queryKey: "newSingleFilm", queryFn: newSingleMoiveService },
-    { queryKey: "newSeriesFilm", queryFn: newSeriesMoiveService },
+    { queryKey: "FilmViet", queryFn: getFilmViet },
   ];
   const results = useQueries(queries);
 
@@ -35,12 +37,12 @@ export default function HomePage() {
 
   const filmHot = results[0].data;
   const newSingleFilm = results[1].data;
-  const newSeriesFilm = results[2].data;
+  const filmViet = results[2].data;
 
   return (
     <MainLayout>
       <div>
-        <Poster />
+        <Poster  />
         <div className="text-2xl font-semibold pl-8 mt-8 ml-9 font-momo">
           Phim Hot
         </div>
@@ -51,10 +53,10 @@ export default function HomePage() {
               Phim Lẻ Mới Cập Nhật
             </div>
             <ProductList data={newSingleFilm} />
-            <div className="text-2xl font-semibold pl-4 mt-8 ml-4 font-mono">
-              Phim Bộ Mới Cập Nhật
+            <div  className="text-2xl font-semibold pl-4 mt-8 ml-4 font-mono">
+              <Link href={'/categories/filmViet'}>Phim Việt</Link>
             </div>
-            <ProductList data={newSeriesFilm} />
+            <ProductList data={filmViet} />
           </div>
           <div>
             <div className="max-sm:hidden max-md:hidden max-lg:hidden p-2 w-11/12">

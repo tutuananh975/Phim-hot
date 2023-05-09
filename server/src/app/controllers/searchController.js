@@ -1,3 +1,0 @@
-const searchBox = (req,res)=>{
-    
-}

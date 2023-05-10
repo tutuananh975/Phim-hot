@@ -5,7 +5,7 @@ export const PosterImg = [
     },
     {
         id:2,
-        img: 'https://i.ytimg.com/vi/9knuQ89AYVM/hqdefault.jpg'
+        img: 'https://ghienphim4.net/uploads/khac-tinh-cua-quy_banner_.jpg?v=1683358345'
     },
     {
         id:3,

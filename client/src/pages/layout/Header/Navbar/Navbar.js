@@ -4,11 +4,11 @@ import React, { useState } from "react";
 
 export const items = [
   { id: 1, name: "HOME", path: "/" },
-  { id: 3, name: "PHIM LẺ", path: "" },
+  { id: 3, name: "PHIM LẺ", path: "/categories/singleMovie" },
   { id: 2, name: "PHIM BỘ", path: "" },
   { id: 4, name: "PHIM VIỆT", path: "/categories/filmViet" },
-  { id: 5, name: "PHIM HÀI", path: "" },
-  { id: 6, name: "VÕ THUẬT", path: "" },
+  { id: 5, name: "PHIM HÀI", path: "/categories/comedy" },
+  { id: 6, name: "HÀNH ĐỘNG", path: "/categories/actionMovie" },
   { id: 7, name: "HOẠT HÌNH", path: "/categories/cartoon" },
 ];
 

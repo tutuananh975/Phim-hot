@@ -54,8 +54,8 @@ export const ComingDb = [
     },
     {   
         id :10,
-        name : 'Bố Già',
-        englishName : "Dad, I'm Sorry 2022" ,
-        avatar : 'https://duphim.tv/uploads/21rp3lRbU0KS5nEhNd46FwMTa7k9HoLj.jpg?v=1623742847',
+        name : 'Lật Mặt 5: 48h',
+        englishName : "Lật Mặt 5 (2021)" ,
+        avatar : 'https://ghienphim4.net/uploads/MJHjXWRBEg34yKiz1Y0tPeafC2Nk9IoD.jpeg?v=1624248751',
     },
 ]

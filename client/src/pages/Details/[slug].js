@@ -20,6 +20,17 @@ const Details = () => {
   const router = useRouter();
   const id = router.query.slug;
 
+  if (id === "undefined") {
+    return (
+      <div className=" flex items-center justify-center h-screen">
+        <div className="text-center">
+          <div className="text-2xl font-semibold mb-4">Chúng tôi sẽ cập nhật phim sớm nhất</div>
+          <Link href={"/"} className="bg-orange-500 p-2 font-semibold rounded-lg">Trở lại</Link>
+        </div>
+      </div>
+    );
+  }
+
   const { isLoading, error, data } = useQuery(["detailMovie", id], () =>
     getOneMovie(id)
   );
@@ -54,7 +65,9 @@ const Details = () => {
               />
               <div className="flex justify-start p-2">
                 <AiFillEye className="text-orange-500 text-xl" />
-                <p className="text-sm font-medium text-gray-500 pl-1">400</p>
+                <p className="text-sm font-medium text-gray-500 pl-1">
+                  {todo.view}
+                </p>
               </div>
             </div>
             <div>
@@ -65,15 +78,21 @@ const Details = () => {
                 </div>
               </div>
               <div className="p-4">
-                <div className="font-semibold py-1">Thời Lượng: {todo.long}</div>
-                <div className="font-semibold py-1">Năm Phát Hành: {todo.releaseAt}</div>
+                <div className="font-semibold py-1">
+                  Thời Lượng: {todo.long}
+                </div>
+                <div className="font-semibold py-1">
+                  Năm Phát Hành: {todo.releaseAt}
+                </div>
                 <div className="font-semibold py-1">
                   Đạo Diễn: {todo.director}
                 </div>
                 <div className="font-semibold py-1">
                   Diễn Viên: {todo.performer}
                 </div>
-                <div className="font-semibold py-1">Quốc Gia: {todo.country}</div>
+                <div className="font-semibold py-1">
+                  Quốc Gia: {todo.country}
+                </div>
               </div>
             </div>
           </div>

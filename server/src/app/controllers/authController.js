@@ -99,11 +99,12 @@ const login = asyncHandler(async (req, res) => {
         res.status(200).json({
             status: "ok",
             message: "login successfully",
+            email,
             data: {
                 firstName: user.firstName,
                 lastName: user.lastName,
-                email,
                 picture: user.picture,
+                email,
                 token
             }
         })

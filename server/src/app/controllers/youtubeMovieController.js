@@ -222,6 +222,18 @@ const getSingleMovie = asyncHandler(async (req, res) => {
   }
 });
 
+const getTrendingMovie = asyncHandler(async (req, res) => {
+  const data = await YoutubeMovie.find()
+    .sort({view: -1 })
+    .limit(10);
+  res.status(200).json({
+    status: "ok",
+    message: "Get Trendding Movie successfully",
+    data,
+  });
+});
+
+
 export {
   createMovie,
   editOneEpisode,
@@ -234,4 +246,5 @@ export {
   getCartonMovie,
   getComedyMovie,
   getSingleMovie,
+  getTrendingMovie,
 };

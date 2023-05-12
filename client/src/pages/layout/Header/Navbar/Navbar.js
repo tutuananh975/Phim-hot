@@ -1,3 +1,4 @@
+import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
@@ -14,6 +15,7 @@ export const items = [
 
 const Navbar = () => {
   const router = useRouter();
+  const { data: session } = useSession();
   return (
     <>
       <div className="flex mt-3 max-sm:hidden">
@@ -26,7 +28,7 @@ const Navbar = () => {
             {arr.name}
           </Link>
         ))}
-        <Link href={'/categories/favorite'}
+        <Link href={`${session?.user?'/categories/favorite':'/auth/Login'}`}
           className={`text-gray-200 text-base p-5 font-medium cursor-pointer ${router.asPath==='/categories/favorite'?"text-orange-500":""}`}
         >
           MỤC YÊU THÍCH

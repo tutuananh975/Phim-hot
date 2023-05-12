@@ -4,13 +4,14 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import Link from "next/link";
 import { AiOutlineClose } from "react-icons/ai";
-import { loginService } from "@/services/auth.service";
 import { ToastContainer, toast } from "react-toastify";
 import { useRouter } from "next/router";
+import { signIn } from "next-auth/react";
 
 const Login = () => {
   const [valueOnChange, setValueOnChange] = useState("");
-  const router = useRouter()
+  const router = useRouter();
+
   return (
     <>
       <Formik
@@ -27,16 +28,16 @@ const Login = () => {
         validate={(Change) => {
           setValueOnChange(Change);
         }}
-        onSubmit={(user) => {
-          loginService(user)
-            .then((res) => {
-              console.log(res.data)
-              if(res.data.status==='ok'){
-                toast.success("Đăng nhập thành công");
-                router.push('/')
-              }
-            })
-            .catch((err) => toast.error(err.response.data.message));
+        onSubmit={async (user) => {
+          const result = await signIn("credentials", {
+            ...user,
+            redirect: false,
+            // callbackUrl: "/",
+          });
+          if(result.error){
+            return toast.error(result.error)
+          }
+          router.push('/')
         }}
       >
         <div className="text-gray-900 h-screen max-sm:bg-white">
@@ -111,6 +112,7 @@ const Login = () => {
                   className="w-10 cursor-pointer mr-2"
                 />
                 <img
+                  onClick={()=>signIn("google",{callbackUrl:"/"})}
                   src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-suite-everything-you-need-know-about-google-newest-0.png"
                   alt=""
                   className="w-10 cursor-pointer ml-2"

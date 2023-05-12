@@ -39,7 +39,7 @@ const SearchTable = () => {
 
   return (
     <MainLayout>
-      <div className="w-1/2 mx-auto mt-4">
+      <div className="w-1/2 mx-auto mt-4 max-sm:w-full">
         <div className="flex">
           <span className="font-bold text-2xl text-orange-500 pr-1">|</span>
           <div className="font-semibold text-xl mt-1">

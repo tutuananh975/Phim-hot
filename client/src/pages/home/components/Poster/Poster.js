@@ -4,7 +4,7 @@ import { AiFillCaretLeft, AiFillCaretRight } from "react-icons/ai";
 import { EffectCoverflow, Pagination, Navigation, Autoplay } from "swiper";
 import { PosterImg } from "@/data/Posters";
 
-const Poster = () => {
+const Poster = ({data}) => {
   return (
     <>
       <Swiper
@@ -33,9 +33,9 @@ const Poster = () => {
           disableOnInteraction: false,
         }}
       >
-        {PosterImg.map((i) => (
-          <SwiperSlide key={i.id}>
-            <img src={i.img} alt="slide_image" className="max-w-xl max-h-80" style={{backgroundSize: "cover"}}/>
+        {data.map((i) => (
+          <SwiperSlide key={i._id}>
+            <img src={i.poster} alt="slide_image" className="max-w-xl max-h-80" style={{backgroundSize: "cover"}}/>
           </SwiperSlide>
         ))}
         <div className="slider-controler">

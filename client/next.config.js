@@ -5,8 +5,10 @@ const nextConfig = {
     appDir: true,
   },
   env: {
-    host: "http://localhost:5000",
-  }
+    HOST: process.env.HOST,
+    GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID,
+    GOOGLE_CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET,
+  },
 };
 
 module.exports = nextConfig;

@@ -10,16 +10,20 @@ import {
   hotMoviesService,
   newSingleMoiveService,
   newSeriesMoiveService,
+  trenddingMovie,
 } from "@/services/Homepage.service";
 import { BeatLoader } from "react-spinners";
 import { getFilmViet } from "@/services/categories.service";
 import Link from "next/link";
+import { PosterImg } from "@/data/Posters";
+
 
 export default function HomePage() {
   const queries = [
     { queryKey: "filmHot", queryFn: hotMoviesService },
     { queryKey: "newSingleFilm", queryFn: newSingleMoiveService },
     { queryKey: "FilmViet", queryFn: getFilmViet },
+    { queryKey: "TrenddingMovie", queryFn: trenddingMovie },
   ];
   const results = useQueries(queries);
 
@@ -38,11 +42,12 @@ export default function HomePage() {
   const filmHot = results[0].data;
   const newSingleFilm = results[1].data;
   const filmViet = results[2].data;
+  const TrenddingMovie = results[3].data;
 
   return (
     <MainLayout>
       <div>
-        <Poster  />
+        <Poster data={PosterImg}/>
         <div className="text-2xl font-semibold pl-8 mt-8 ml-9 font-momo">
           Phim Hot
         </div>
@@ -53,8 +58,8 @@ export default function HomePage() {
               Phim Lẻ Mới Cập Nhật
             </div>
             <ProductList data={newSingleFilm} />
-            <div  className="text-2xl font-semibold pl-4 mt-8 ml-4 font-mono">
-              <Link href={'/categories/filmViet'}>Phim Việt</Link>
+            <div className="text-2xl font-semibold pl-4 mt-8 ml-4 font-mono">
+              <Link href={"/categories/filmViet"}>Phim Việt</Link>
             </div>
             <ProductList data={filmViet} />
           </div>
@@ -69,7 +74,7 @@ export default function HomePage() {
               <div className="text-2xl font-semibold p-4 mt-8 font-mono">
                 TRENNDING
               </div>
-              <SideBarList data={FaturedMovies} />
+              <SideBarList data={TrenddingMovie} />
             </div>
           </div>
         </div>

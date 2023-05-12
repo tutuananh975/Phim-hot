@@ -1,26 +1,26 @@
 export const PosterImg = [
     {
-        id:1,
-        img: 'https://afamilycdn.com/150157425591193600/2021/10/4/phim-kingdom-vuong-trieu-xac-song-phan-1-2-full-hd-vietsub-1-16333243807721978567362-0-0-394-630-crop-1633326547679730083843.jpg'
+        _id:1,
+        poster: 'https://ghienphim4.net/uploads/avatar-2-dong-chay-cua-nuoc-avatar-2-the-way-of-water-18_banner_.jpg?v=1672887883'
     },
     {
-        id:2,
-        img: 'https://ghienphim4.net/uploads/khac-tinh-cua-quy_banner_.jpg?v=1683358345'
+        _id:2,
+        poster: 'https://ghienphim4.net/uploads/aka_banner_.jpg?v=1683041051'
     },
     {
-        id:3,
-        img: 'https://image.nhandan.vn/w800/Files/Images/2022/04/18/578-1650282865517.jpg'
+        _id:3,
+        poster: 'https://image.nhandan.vn/w800/Files/Images/2022/04/18/578-1650282865517.jpg'
     },
     {
-        id:4,
-        img: 'https://youthvietnam.vn/wp-content/uploads/2021/06/mau-poster-phim-viet-nam.jpg'
+        _id:4,
+        poster: 'https://youthvietnam.vn/wp-content/uploads/2021/06/mau-poster-phim-viet-nam.jpg'
     },
     {
-        id:5,
-        img: 'https://image.baophapluat.vn/1200x630/Uploaded/2023/hfobhvwbucqaow/2022_06_15/nha-thiet-ke-poster-phim-le-791655133447-5792.jpg'
+        _id:5,
+        poster: 'https://image.baophapluat.vn/1200x630/Uploaded/2023/hfobhvwbucqaow/2022_06_15/nha-thiet-ke-poster-phim-le-791655133447-5792.jpg'
     },
     {
-        id:6,
-        img: 'https://thegioidohoa.com/wp-content/uploads/2018/06/poster-phim.jpg'
+        _id:6,
+        poster: 'https://thegioidohoa.com/wp-content/uploads/2018/06/poster-phim.jpg'
     }
 ]

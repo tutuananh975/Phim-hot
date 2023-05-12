@@ -22,3 +22,8 @@
   cursor: pointer;
   color: orange;
 }
+.signOut{
+}
+.hover-signOut:hover .signOut{
+  display: block;
+}

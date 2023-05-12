@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const SideBarList = ({ data }) => {
@@ -5,7 +6,7 @@ const SideBarList = ({ data }) => {
     <>
       <div>
         {data?.map((data,index) => (
-          <div className={`flex my-2 cursor-pointer ${index %2 ===0 ? 'bg-gray-800' : ''}`} key={data.id}>
+          <Link href={`/details`} as={`/details/${data.slug}`} className={`flex my-2 cursor-pointer ${index %2 ===0 ? 'bg-gray-800' : ''}`} key={index}>
             <img src={data.avatar} alt="" className="w-14 h-14 my-auto" />
             <div className="ml-2">
               <div className="text-sm font-semibold font-mono mt-2 text-start">
@@ -15,7 +16,7 @@ const SideBarList = ({ data }) => {
                 {data.englishName}
               </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </>
